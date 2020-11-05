@@ -9,12 +9,14 @@
 
     // Positioning context for the mobile navigation icon
     position: relative;
+    overflow: hidden;
 }
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 .header-background{
     word-wrap: anywhere;
     opacity: 0.1;
     position: absolute;
+    width: 150%;
     top: -181px;
     transform: rotate(-9deg) scale(110%);
     line-height: 0.7;

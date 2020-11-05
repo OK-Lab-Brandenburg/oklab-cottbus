@@ -10,6 +10,16 @@
     // Positioning context for the mobile navigation icon
     position: relative;
 }
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+.header-background{
+    word-wrap: anywhere;
+    opacity: 0.1;
+    position: absolute;
+    top: -181px;
+    transform: rotate(-9deg) scale(110%);
+    line-height: 0.9;
+    font-family: 'VT323', monospace;
+}
 
 .site-title {
     font-size: 33px;

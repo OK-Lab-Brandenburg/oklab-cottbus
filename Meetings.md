@@ -2,7 +2,7 @@
 layout: default
 title: Meetings
 permalink: /Meetings/
-navpos: 2
+navpos: 3
 nav: true
 ---
 

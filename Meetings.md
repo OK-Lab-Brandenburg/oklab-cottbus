@@ -1,6 +1,7 @@
 ---
 layout: default
-title: all posts
+title: Meetings
+permalink: /Meetings/
 navpos: 2
 nav: true
 ---
@@ -8,8 +9,13 @@ nav: true
 <div class="home">
 
   <!--<h1 class="post-heading">Posts</h1>-->
+  <header class="post-header">
+  <h1 class="post-title">Meetings</h1>
+  </header>
+  <p>Hier findet ihr die Protokolle unserer Meetings.</p>
+  <hr>
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in site.categories.Meetings %}
       <li>
 
         <h2>

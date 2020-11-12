@@ -18,7 +18,6 @@ nav: true
         {{ post.excerpt }}
         <p class="post-meta">
           {{ post.date | date: "%b %-d, %Y" }}
-          <a class="language" href="/{{ post.language }}/">{{ post.language }}</a>
           <a class="language" href="/{{ post.category }}/">{{ post.categories.first }}</a>
         </p>
         <p class="post-meta">

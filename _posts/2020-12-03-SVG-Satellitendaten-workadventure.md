@@ -6,7 +6,6 @@ excerpt: "Themen: SVG-Grafiken (OKlab-Logo), Satellitendaten, workadventure"
 category: Meetings
 ---
 
-# Protokoll Treffen 03.12.2020
 
 ## Workadventure
 

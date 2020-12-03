@@ -7,15 +7,14 @@ category: Meetings
 ---
 
 
-## Workadventure
+# Workadventure
 
 Wir haben uns heute mal in einer virtuellen Gameumgebung getroffen:
-
 [https://play.workadventu.re/_/gov-ejb-jqv/npeguin.github.io/office-map/map.json](https://play.workadventu.re/_/gov-ejb-jqv/npeguin.github.io/office-map/map.json)
 
 Das würde sich sehr gut anbieten für das virtuele Repaircafe.
 
-## SVG-Grafiken 
+# SVG-Grafiken 
 
 Unsere Logo-Entwicklung (siehe [https://github.com/oklab-cottbus/Logo_Design](https://github.com/oklab-cottbus/Logo_Design)) brachte uns auf das Thema SVG-Grafiken. 
 SVG-Dateien kann man direkt in Webseiten einbinden und spart damit Bandbreite und zusätzlich ist dann z.B. unser Logo 
@@ -36,7 +35,7 @@ Hier gibt es viele Beeindruckende Beispiele:
 [https://observablehq.com/@d3/scatterplot-tour](https://observablehq.com/@d3/scatterplot-tour)
 
 
-## Satellitendaten auswerten
+# Satellitendaten auswerten
 
 Es wurde nur kurz angesprochen, dass man was mit Satellitendaten machen könnte. Es gibt verschiedene Satelliten-Missionen, die ihre Daten frei verfügbar machen.
 

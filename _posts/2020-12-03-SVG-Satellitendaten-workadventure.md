@@ -10,7 +10,7 @@ category: Meetings
 # Workadventure
 
 Wir haben uns heute mal in einer virtuellen Gameumgebung getroffen:
-[https://play.workadventu.re/_/gov-ejb-jqv/npeguin.github.io/office-map/map.json](https://play.workadventu.re/_/gov-ejb-jqv/npeguin.github.io/office-map/map.json)
+[https://play.workadventu.re/\_/gov-ejb-jqv/npeguin.github.io/office-map/map.json](https://play.workadventu.re/_/gov-ejb-jqv/npeguin.github.io/office-map/map.json)
 
 Das würde sich sehr gut anbieten für das virtuele Repaircafe.
 

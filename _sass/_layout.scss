@@ -9,7 +9,7 @@
 
     // Positioning context for the mobile navigation icon
     position: relative;
-    overflow: hidden;
+    overflow: visible;
 }
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 .header-background{
@@ -27,6 +27,24 @@
 .wrapper{
   position: relative;
   z-index: 2;
+}
+#site-logo{
+  position: absolute;
+  left: -133px;
+  top: 3px;
+  @media screen and (max-width: 1030px) {
+    position: relative;
+    float: left;
+    height: 80px;
+    width: 80px;
+    left: -10px;
+    margin-right: 0px;
+    padding-bottom: 5px;
+    @media screen and (max-width: 400px){
+      height: 60px;
+      width: 60px;
+    }
+  }
 }
 
 .site-title {

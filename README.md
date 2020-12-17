@@ -1,7 +1,7 @@
 # oklab-cottbus
 Webseite des OKlab Cottbus
 
-Die Seite ist unter https://oklabcb.de erreichbar.
+Die Seite ist unter https://okcb.de erreichbar.
 
 Das Anlegen der github-Seite ist hier dokumentiert: https://pages.github.com/
 

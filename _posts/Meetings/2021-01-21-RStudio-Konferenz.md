@@ -9,7 +9,92 @@ Da das vom Termin her mit unserem regelmäßigen Treffen zusammen fiel haben wir
 
 Die Talks von den Jahren [2020](https://rstudio.com/resources/rstudioconf-2020/), [2019](https://rstudio.com/resources/rstudioconf-2019), [2018](https://rstudio.com/resources/rstudioconf-2018), [2017](https://rstudio.com/resources/rstudioconf-2017) und [2016](https://rstudio.com/resources/shiny-dev-con-2016) kann man sich im Video-Archiv anschauen. Die Talks von diesem Jahr sollen auch irgendwann online gestellt werden.
 
-Einige (unsortierte) Notizen zur Konferenz:
+
+Im folgenden ein paar Notizen zu den Vorträgen:
+
+------------------
+* Talk: Visualisation of the pandemic in the Financial Times:
+by: John Burn-Murdoch 
+
+    > John will discuss the lessons he's learned reporting on and visualising the pandemic, including the world of difference between making charts for a technical audience and making charts for a mass audience. 
+    > You'll learn from his experience navigating the highly personal and political context within which people consume and evaluate graphics and data, and how that can help us better design and communicate with visualisations down the pipeline for the future.
+
+    * How to communicate the right data to the broader mass.
+
+
+    * Eyetracking Experiment:
+
+      - Title -> Description of bars
+
+      - participants remembered titles
+
+      - Titles stick!
+
+    * Coronavirus Trajectory tracker:
+
+      - Put a summary of information in the graphic in the title(What is the takeaway)
+
+      - Descriptive text inside the plot on graphs and axis (annotation)
+
+
+    * Lesson:
+
+      - assumption: use math and geometry to make perfect plot
+
+      - better: "Charts for non-chart people"
+
+      - Make charts intuitively interpretable 
+
+        - "which country does better or worse"
+
+        - not "how many pixels is 100 cases"
+
+      - Communication is key
+
+        - Stick around for feedback about your work
+
+
+    * Smoothing of the Graph:
+
+      - Splining vs rolling average
+
+          - Rolling avg better to understand
+
+          - spline more true to real data and also smoother
+
+          - choose splining because it communicates better
+
+    * Use of animation:
+
+      - animations can surprise because not all information is visible at once. It builds up tension and climaxes in the keypoint which you want to communicate.
+
+
+
+    * Summary:
+
+        - Text is secret weapon
+
+        - explain the chart to confused people in situ
+
+        - consider emotional and political context
+
+        - Stick around 
+
+        - ease of understanding has to come first
+
+
+    * Tools:
+
+      - first version: R
+
+      - post production in illustrator (because of fin-times styleguide)
+
+        * pivoted to "d3"
+
+        * using R and ggplot to draft then go to d3
+
+
+--------------
 
 * Buchempfehlung: Hadley Wickham: The joy of functional programming
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Protokoll Treffen 03.12.2020"
+title: "Meeting 03.12.2020"
 author: "OKlab"
 excerpt: "Themen: SVG-Grafiken (OKlab-Logo), Satellitendaten, workadventure"
 category: Meetings

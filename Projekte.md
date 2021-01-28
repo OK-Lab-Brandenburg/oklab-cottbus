@@ -1,16 +1,21 @@
 ---
 layout: default
-title: Posts
-permalink: /Posts/
-navpos: 2
+title: Projekte
+permalink: /Projekte/
+navpos: 3
 nav: true
 ---
 
 <div class="home">
 
   <!--<h1 class="post-heading">Posts</h1>-->
+  <header class="post-header">
+  <h1 class="post-title">Projekte</h1>
+  </header>
+  <p>Hier eine Übersicht über unsere Projekte.</p>
+  <hr>
   <ul class="post-list">
-    {% for post in site.posts %}
+    {% for post in site.categories.Projekte %}
       <li>
 
         <h2>

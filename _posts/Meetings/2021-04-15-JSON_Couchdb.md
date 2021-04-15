@@ -1,19 +1,21 @@
 ---
 layout: post
 title: JSON Couchdb
-excerpt: Allgemeiner Talk zum Thema Offene Daten
+excerpt: Daten an CouchDB auf cloudant.com übertragen
 category: Meetings
 ---
+
+Um die Daten der [CO2-Ampel](https://civilize.it/t/co2-ampel-verstehbahnhof/342) ins Web zu übertragen haben wir mit CouchDB herumexperimentiert.
 
 
 ## `jq` - Command-line JSON processor
 
-* `man jq` ist dein freund
+* `man jq` is your friend
 * [jq cookbook](https://github.com/stedolan/jq/wiki/Cookbook)
 
 ### get an cloudant.com access token
 
-```{sh}
+```sh
 #!/bin/bash
 # source this file once to get CLOUDANT_TOKEN environment variable for cloudant.sh
 
@@ -35,7 +37,7 @@ fi
 
 ### do couchdb stuff with token
 
-```{sh}
+```sh
 #!/bin/bash -xe
 
 # http method GET and POST get inferred
@@ -57,14 +59,14 @@ QUERY="_changes?feed=continuous&include_docs=true&since=$SINCE"
 JQ='{error: .error, id: .doc._id, created_at: .doc.created_at, warmed_up: .doc.warmed_up, co2: .doc.co2, temp: .doc.temp}'
 
 # useful curl options:
-# -v ... verbose
+# -v ... verbose (shows HTTP Headers)
 # -s ... silent
 # -S ... shows error (like token expired)
-# -N ... unbuffered output
+# -N ... unbuffered output (doesn't wait for request to finish, useful for continuous feeds)
 
 #useful jq options:
-# -c ... compact output
-# --unbuffered ... unbuffered output
+# -c ... compact output (less whitespace)
+# --unbuffered ... unbuffered output (doesn't wait for end of input)
 # -r ... raw output of strings ('lol' instead of '"lol"')
 
 curl -SsN \
@@ -80,13 +82,14 @@ curl -SsN \
 
 1) create a file full of tokens
 
-```{sh}
+```sh
 while(true); do ./cloudant_token.sh -c >> tokens; utimer -qc 10s; done
 ```
 
-2) get a token with expiration only 2min in future instead of 3600s
+2) wait 3480 seconds
+3) get a token with expiration only 2min in future instead of 3600s
 
-```{sh}
+```sh
 #!/bin/bash -xe
 
 SEC=$(($(date +%s) + 120))
@@ -111,7 +114,7 @@ echo $TOK1 | base64 -d | jq
 TOK2='eyJpYW1faWQiOiJpYW0tU2VydmljZUlkLTFiZWUzNWU3LTQxZmUtNDU1MC1hM2RhLTg2MTBhMGM4YmFjNCIsImlkIjoiaWFtLVNlcnZpY2VJZC0xYmVlMzVlNy00MWZlLTQ1NTAtYTNkYS04NjEwYTBjOGJhYzQiLCJyZWFsbWlkIjoiaWFtIiwianRpIjoiYzEzOWVjNmEtNzIzNy00OGRiLWI2MjYtOGQzMjc2OTJlYWMyIiwiaWRlbnRpZmllciI6IlNlcnZpY2VJZC0xYmVlMzVlNy00MWZlLTQ1NTAtYTNkYS04NjEwYTBjOGJhYzQiLCJuYW1lIjoid3JpdGFibGUiLCJzdWIiOiJTZXJ2aWNlSWQtMWJlZTM1ZTctNDFmZS00NTUwLWEzZGEtODYxMGEwYzhiYWM0Iiwic3ViX3R5cGUiOiJTZXJ2aWNlSWQiLCJhdXRobiI6eyJzdWIiOiJpYW0tU2VydmljZUlkLTFiZWUzNWU3LTQxZmUtNDU1MC1hM2RhLTg2MTBhMGM4YmFjNCIsImlhbV9pZCI6ImlhbS1pYW0tU2VydmljZUlkLTFiZWUzNWU3LTQxZmUtNDU1MC1hM2RhLTg2MTBhMGM4YmFjNCIsInN1Yl90eXBlIjoiMSIsIm5hbWUiOiJ3cml0YWJsZSJ9LCJhY2NvdW50Ijp7InZhbGlkIjp0cnVlLCJic3MiOiIyZjIyNzBhYmU1NTM0YzZjOWVmOTc2NjdiNDQ3YjM0MCIsImZyb3plbiI6dHJ1ZX0sImlhdCI6MTYxODQ4MjQzNCwiZXhwIjoxNjE4NDg2MDM0LCJpc3MiOiJodHRwczovL2lhbS5jbG91ZC5pYm0uY29tL2lkZW50aXR5IiwiZ3JhbnRfdHlwZSI6InVybjppYm06cGFyYW1zOm9hdXRoOmdyYW50LXR5cGU6YXBpa2V5Iiwic2NvcGUiOiJpYm0gb3BlbmlkIiwiY2xpZW50X2lkIjoiZGVmYXVsdCIsImFjciI6MSwiYW1yIjpbInB3ZCJdfQ'
 echo $TOK2 | base64 -d
 
->>> {"iam_id":"iam-ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","id":"iam-ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","realmid":"iam","jti":"c139ec6a-7237-48db-b626-8d327692eac2","identifier":"ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","name":"writable","sub":"ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","sub_type":"ServiceId","authn":{"sub":"iam-ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","iam_id":"iam-iam-ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","sub_type":"1","name":"writable"},"account":{"valid":true,"bss":"2f2270abe5534c6c9ef97667b447b340","frozen":true},"iat":1618482434,"exp":1618486034,"iss":"https://iam.cloud.ibm.com/identity","grant_type":"urn:ibm:params:oauth:grant-type:apikey","scope":"ibm openid","client_id":"default","acr":1,"amr":["pwd"]}
+>> {"iam_id":"iam-ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","id":"iam-ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","realmid":"iam","jti":"c139ec6a-7237-48db-b626-8d327692eac2","identifier":"ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","name":"writable","sub":"ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","sub_type":"ServiceId","authn":{"sub":"iam-ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","iam_id":"iam-iam-ServiceId-1bee35e7-41fe-4550-a3da-8610a0c8bac4","sub_type":"1","name":"writable"},"account":{"valid":true,"bss":"2f2270abe5534c6c9ef97667b447b340","frozen":true},"iat":1618482434,"exp":1618486034,"iss":"https://iam.cloud.ibm.com/identity","grant_type":"urn:ibm:params:oauth:grant-type:apikey","scope":"ibm openid","client_id":"default","acr":1,"amr":["pwd"]}
 ```
 
 
@@ -122,4 +125,19 @@ var encodedString = base64UrlEncode(header) + "." + base64UrlEncode(payload);
 var hash = HMACSHA256(encodedString, secret);
 ```
 
-Aber das Secret ist nur dem Server bekannt.
+Aber das Secret ist nur dem Server bekannt. [source](https://de.wikipedia.org/wiki/JSON_Web_Token#Signatur)
+
+## CouchDB and Cloudant.com resources
+
+### getting started
+
+https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-getting-started-with-cloudant
+
+### authentification
+
+https://cloud.ibm.com/docs/Cloudant?topic=Cloudant-connecting
+https://cloud.ibm.com/docs/account?topic=account-iamapikeysforservices#token_auth
+
+### couchdb doku
+
+https://docs.couchdb.org/en/2.3.1/index.html (cloudant uses couchdb 2.1.1)

@@ -1,8 +1,9 @@
 /**
  * Site header
  */
+$header_height: 56px;
 .site-header {
-    min-height: 56px;
+    min-height: $header_height;
     color: #fff;
     background-color: #159957;
     background-image: linear-gradient(340deg, #0e3a66, #20cbff);
@@ -10,19 +11,23 @@
     // Positioning context for the mobile navigation icon
     position: relative;
     overflow: visible;
+    word-wrap: break-word;
 }
 @import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
 .header-background{
-    word-wrap: anywhere;
+    word-wrap: break-word;
     opacity: 0.1;
     position: absolute;
-    width: 150%;
+    width: 110%;
     top: -181px;
-    transform: rotate(-9deg) scale(110%);
+    left: -10%;
+    transform: rotate(-9deg);
+    transform-origin: 50% 0%;
     line-height: 0.7;
     font-family: 'VT323', monospace;
     font-size: 15pt;
     z-index: 0;
+    overflow:hidden;
 }
 .wrapper{
   position: relative;
@@ -32,6 +37,8 @@
   position: absolute;
   left: -133px;
   top: 3px;
+  width: 133.95px;
+  height: 154.31px;
   @media screen and (max-width: 1030px) {
     position: relative;
     float: left;
@@ -182,9 +189,14 @@
 /**
  * Site footer
  */
+$footer-height: 120px;
 .site-footer {
     border-top: 1px solid $grey-color-light;
     padding: 10px 0;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    /*height: $footer-height;*/
 }
 
 .footer-heading {
@@ -208,6 +220,7 @@
 .social-media-list {
     list-style: none;
     margin-left: 0;
+    margin-bottom: 0;
 }
 
 .footer-col-wrapper {
@@ -219,7 +232,7 @@
 
 .footer-col {
     float: left;
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: 5px; /*$spacing-unit / 2;*/
     padding-left: $spacing-unit / 2;
 }
 
@@ -255,8 +268,16 @@
 /**
  * Page content
  */
+
+#container{
+  position: relative;
+  min-height: 100%;
+}
 .page-content {
     padding: $spacing-unit 0;
+    min-height: 40%;
+    padding-bottom: $footer-height;
+    position: static;
 }
 
 .page-heading {
@@ -446,4 +467,13 @@ hr {
 a {
   overflow-wrap: break-word;
   word-wrap: break-word;
+}
+
+
+/*fix for fontawesome links*/
+.fa{
+  font-family: $base-font-family !important;
+}
+.fa::before{
+  font: normal normal normal 14px/1 FontAwesome !important;
 }

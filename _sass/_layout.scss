@@ -56,7 +56,35 @@ $header_height: 56px;
     margin-right: 0px;
     padding-bottom: 5px;
   }
+  #logo-background{
+    fill: rgb(255, 255, 255);
+  }
 }
+#Sechseck:hover {
+  #Krebshintergrund{
+    fill: url("#radialGradient2788");
+  }
+  .Krebskoerper{
+    fill: url("#radialGradient2788");
+  }
+  .Greifer{
+      animation-name: Greifer;
+      animation-duration: 0.3s;
+      animation-iteration-count: 4;
+      animation-direction: alternate;
+      transform-origin: 26.22px 52px;
+  }
+  @keyframes Greifer {
+      0% {
+          transform: rotate(0deg);
+      }
+      100% {
+          transform: rotate(-10deg);
+      }
+  }
+}
+
+
 
 .site-title {
     font-size: 33px;
